@@ -2,7 +2,7 @@ import "@/styles/home/portfolio.css";
 
 export default function Outsource() {
     return (
-        <div data-aos="fade-up">
+        <div className="outsource-section" data-aos="fade-up">
             <h2 id="list">Outsource</h2>
             <h3 id="explain">
                 Building extraordinary outsourcing results that pleases the
@@ -27,15 +27,21 @@ export default function Outsource() {
                             />
                         </div>
                         <div className="card-info">
+                            <span className="outsource-badge">Client Work</span>
                             <h3>Accompany Service</h3>
                             <p>
-                                Made Frontend part of 동반자동행 app,
-                                <br />
-                                which is an accompany service for seniors.
+                                Frontend development for 동반자동행, a mobile
+                                app that pairs seniors with volunteer companions.
                             </p>
-                            <span className="date">
-                                25. 12. 20. - 25. 12. 29.
-                            </span>
+                            <div className="card-tags">
+                                <span className="card-tag">React Native</span>
+                                <span className="card-tag">Mobile</span>
+                                <span className="card-tag">Frontend</span>
+                            </div>
+                            <div className="card-meta">
+                                <span className="date">25. 12. 20. – 25. 12. 29.</span>
+                                <span className="card-cta">View</span>
+                            </div>
                         </div>
                     </div>
                 </a>
@@ -55,16 +61,21 @@ export default function Outsource() {
                             />
                         </div>
                         <div className="card-info">
+                            <span className="outsource-badge">Client Work</span>
                             <h3>Prego Abroad</h3>
                             <p>
-                                Made Official Web Page of Prego Abroad,
-                                <br />
-                                which is an overseas education consulting
-                                service.
+                                Official website for Prego Abroad, an overseas
+                                education consulting service.
                             </p>
-                            <span className="date">
-                                25. 11. 21. - 26. 01. 12.
-                            </span>
+                            <div className="card-tags">
+                                <span className="card-tag">Next.js</span>
+                                <span className="card-tag">Web</span>
+                                <span className="card-tag">Consulting</span>
+                            </div>
+                            <div className="card-meta">
+                                <span className="date">25. 11. 21. – 26. 01. 12.</span>
+                                <span className="card-cta">View</span>
+                            </div>
                         </div>
                     </div>
                 </a>
@@ -84,13 +95,21 @@ export default function Outsource() {
                             />
                         </div>
                         <div className="card-info">
+                            <span className="outsource-badge">Client Work</span>
                             <h3>Nova Law Firm</h3>
                             <p>
-                                Made Official Web Page of NovaLaw,
-                                <br />
-                                which is Law Firm in Incheon, Songdo.
+                                Official website for NovaLaw, a law firm based
+                                in Incheon, Songdo.
                             </p>
-                            <span className="date">24. 07. 11.</span>
+                            <div className="card-tags">
+                                <span className="card-tag">Next.js</span>
+                                <span className="card-tag">Web</span>
+                                <span className="card-tag">Legal</span>
+                            </div>
+                            <div className="card-meta">
+                                <span className="date">24. 07. 11.</span>
+                                <span className="card-cta">View</span>
+                            </div>
                         </div>
                     </div>
                 </a>

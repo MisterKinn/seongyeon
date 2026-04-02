@@ -9,41 +9,41 @@ nextjs-portal {
     font-family: "Toss Product Sans";
 }
 
-/* Global scrollbar styling */
-::-webkit-scrollbar {
-    width: 16px;
-    height: 16px;
-}
-
-::-webkit-scrollbar-track {
-    background: rgba(255, 255, 255, 0.05);
-}
-
-::-webkit-scrollbar-thumb {
-    background: linear-gradient(180deg, rgba(255, 180, 84, 0.6), rgba(255, 153, 51, 0.4));
-    border-radius: 10px;
-    border: 2px solid transparent;
-    background-clip: padding-box;
-}
-
-::-webkit-scrollbar-thumb:hover {
-    background: linear-gradient(180deg, rgba(255, 180, 84, 0.8), rgba(255, 153, 51, 0.6));
-}
-
-/* Firefox scrollbar */
-* {
-    scrollbar-width: thin;
-    scrollbar-color: rgba(255, 180, 84, 0.5) rgba(255, 255, 255, 0.05);
+html,
+body {
+    min-height: 100%;
 }
 
 body {
     margin: 0;
     padding: 0;
-    background-color: black;
+    background-color: #060914;
+    background:
+        radial-gradient(
+            ellipse 80% 50% at 50% -10%,
+            rgba(79, 99, 210, 0.18),
+            transparent
+        ),
+        radial-gradient(
+            ellipse 60% 40% at 80% 110%,
+            rgba(88, 60, 180, 0.1),
+            transparent
+        ),
+        #060914;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
     position: relative;
     overflow-x: hidden;
     scroll-behavior: smooth;
 }
+
+body::before {
+    display: none;
+}
+
+
+
+
 
 #About,
 #Portfolio,

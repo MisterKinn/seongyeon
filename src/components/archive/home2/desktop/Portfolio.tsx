@@ -1,193 +1,130 @@
 import "@/styles/home/portfolio.css";
 
+const PROJECTS = [
+    {
+        title: "F1 Strategy Explorer",
+        description:
+            "Formula 1 tire strategy simulator that scores and compares race plans.",
+        date: "2025.07.15 ~",
+        href: "/f1strategy",
+        image: "img/f1-logo.png",
+        imageClass: "card-preview-small",
+        tags: ["Next.js", "Data Viz", "Simulation"],
+    },
+    {
+        title: "UniMatch",
+        description:
+            "University recommendation service for high school students based on SAT scores.",
+        date: "2025.03.24 ~",
+        href: "/unimatch",
+        image: "img/unimatch.png",
+        imageClass: "card-preview-small",
+        tags: ["React", "Recommendation", "UX"],
+    },
+    {
+        title: "UX Insight",
+        description:
+            "Website UX analysis service that inspects pages and returns actionable feedback.",
+        date: "2024.10.20 ~",
+        href: "/uxinsight",
+        image: "img/ux.png",
+        imageClass: "card-preview-small",
+        tags: ["AI", "Web Analysis", "Product"],
+    },
+    {
+        title: "TodayLunch",
+        description:
+            "School meal information platform with website and social media operation.",
+        date: "2024.04.11 ~",
+        href: "https://todaylun.ch",
+        image: "img/todaylunch.png",
+        imageClass: "card-preview",
+        tags: ["Operations", "Growth", "Content"],
+    },
+    {
+        title: "RoadMap",
+        description:
+            "Founded and operated a high school web development circle and community.",
+        date: "2024.03.08 - 2025.11.23",
+        href: "https://gmsh.kr",
+        image: "img/road-map.png",
+        imageClass: "card-preview-small",
+        tags: ["Community", "Leadership", "Education"],
+    },
+    {
+        title: "QR Crafter",
+        description:
+            "QR code generation service with instant download and easy link sharing.",
+        date: "2023.12.08 ~",
+        href: "/qr",
+        image: "img/link.png",
+        imageClass: "card-preview-small",
+        tags: ["Utility", "Frontend", "Tooling"],
+    },
+    {
+        title: "Machim",
+        description:
+            "Discord bot with server management and utility workflows for communities.",
+        date: "2021.02.07 ~",
+        href: "/machim",
+        image: "img/Machim.png",
+        imageClass: "card-preview-small2",
+        tags: ["Bot", "Automation", "Community"],
+    },
+] as const;
+
 function Portfolio() {
     return (
-        <div className="portfolio-3d">
-            <h2 id="list" data-aos="fade-up">
-                Portfolio
-            </h2>
-            <h3 id="explain" data-aos="fade-up">
-                Crafting impactful Frontend projects that deliver ecstatic
-                experience for lasting impressions.
-                <br />
-                Click the card to try captivating project.
-            </h3>
+        <section id="Portfolio" className="portfolio-3d">
+            <div className="portfolio-shell">
+                <h2 id="list" data-aos="fade-up">
+                    Portfolio
+                </h2>
+                <p id="explain" data-aos="fade-up">
+                    Product-focused frontend work across experiments, real
+                    services, and client delivery. Open any card to explore.
+                </p>
 
-            <div className="portfolio-grid" data-aos="fade-up">
-                <a
-                    href="/f1strategy"
-                    target="_blank"
-                    className="portfolio-item"
-                >
-                    <div className="portfolio-card">
-                        <div className="card-preview-small">
-                            <img
-                                loading="lazy"
-                                src="img/f1-logo.png"
-                                alt="F1 Strategy Explorer"
-                                id="compressed"
-                            />
-                        </div>
-                        <div className="card-info">
-                            <h3>F1 Strategy Explorer</h3>
-                            <p>
-                                Making a Formula 1 Tire Strategy Simulter
-                                <br />
-                                which rates user's race tire strategy.
-                            </p>
-                            <span className="date">25. 07. 15~</span>
-                        </div>
-                    </div>
-                </a>
-
-                <a href="/unimatch" target="_blank" className="portfolio-item">
-                    <div className="portfolio-card">
-                        <div className="card-preview-small">
-                            <img
-                                loading="lazy"
-                                src="img/unimatch.png"
-                                alt="UniMatch"
-                            />
-                        </div>
-                        <div className="card-info">
-                            <h3>UniMatch</h3>
-                            <p>
-                                Making an University Suggestion Service
-                                <br />
-                                for High School Students based on SAT scores.
-                            </p>
-                            <span className="date">25. 03.24~</span>
-                        </div>
-                    </div>
-                </a>
-
-                <a href="/uxinsight" target="_blank" className="portfolio-item">
-                    <div className="portfolio-card">
-                        <div className="card-preview-small">
-                            <img
-                                loading="lazy"
-                                src="img/ux.png"
-                                alt="UX Insight"
-                            />
-                        </div>
-                        <div className="card-info">
-                            <h3>UX Insight</h3>
-                            <p>
-                                Making a Web UX Analyze service
-                                <br />
-                                which dissects Web Page and gives feedback.
-                            </p>
-                            <span className="date">24. 10. 20~</span>
-                        </div>
-                    </div>
-                </a>
-
-                <a
-                    href="https://todaylun.ch"
-                    target="_blank"
-                    title="TodayLunch"
-                    className="portfolio-item"
-                >
-                    <div className="portfolio-card">
-                        <div className="card-preview">
-                            <img
-                                loading="lazy"
-                                src="img/todaylunch.png"
-                                alt="TodayLunch Preview"
-                            />
-                        </div>
-                        <div className="card-info">
-                            <h3>TodayLunch</h3>
-                            <p>
-                                Operating TodayLunch Web Page & Instagram
-                                Account, which informs school meal.
-                            </p>
-                            <span className="date">24. 04. 11~</span>
-                        </div>
-                    </div>
-                </a>
-
-                <a
-                    href="https://gmsh.kr"
-                    target="_blank"
-                    title="RoadMap"
-                    className="portfolio-item"
-                >
-                    <div className="portfolio-card">
-                        <div className="card-preview-small">
-                            <img
-                                loading="lazy"
-                                src="img/road-map.png"
-                                alt="RoadMap Preview"
-                            />
-                        </div>
-                        <div className="card-info">
-                            <h3>RoadMap</h3>
-                            <p>
-                                Founded and Operated RoadMap, which was
-                                <br />
-                                Web Development Circle of my high school.
-                            </p>
-                            <span className="date">24. 03. 08 - 25.11.23.</span>
-                        </div>
-                    </div>
-                </a>
-
-                <a
-                    href="/qr"
-                    target="_blank"
-                    title="QR Crafter"
-                    className="portfolio-item"
-                >
-                    <div className="portfolio-card">
-                        <div className="card-preview-small">
-                            <img
-                                loading="lazy"
-                                src="img/link.png"
-                                alt="QR Crafter Preview"
-                            />
-                        </div>
-                        <div className="card-info">
-                            <h3>QR Crafter</h3>
-                            <p>
-                                Making a QR Code Generate Service,
-                                <br />
-                                which generates & downloads QR Code.
-                            </p>
-                            <span className="date">23. 12. 08~</span>
-                        </div>
-                    </div>
-                </a>
-
-                <a
-                    href="/machim"
-                    target="_blank"
-                    title="Machim"
-                    className="portfolio-item"
-                >
-                    <div className="portfolio-card">
-                        <div className="card-preview-small2">
-                            <img
-                                loading="lazy"
-                                src="img/Machim.png"
-                                alt="Machim Preview"
-                            />
-                        </div>
-                        <div className="card-info">
-                            <h3>Machim</h3>
-                            <p>
-                                Making My Own Discord Bot, which has
-                                <br />
-                                server management & utility features.
-                            </p>
-                            <span className="date">21. 02. 07~</span>
-                        </div>
-                    </div>
-                </a>
+                <div className="portfolio-grid" data-aos="fade-up">
+                    {PROJECTS.map((project) => (
+                        <a
+                            key={project.title}
+                            href={project.href}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="portfolio-item"
+                            title={project.title}
+                        >
+                            <article className="portfolio-card">
+                                <div className={project.imageClass}>
+                                    <img
+                                        loading="lazy"
+                                        src={project.image}
+                                        alt={`${project.title} preview`}
+                                    />
+                                </div>
+                                <div className="card-info">
+                                    <h3>{project.title}</h3>
+                                    <p>{project.description}</p>
+                                    <div className="card-tags">
+                                        {project.tags.map((tag) => (
+                                            <span key={tag} className="card-tag">
+                                                {tag}
+                                            </span>
+                                        ))}
+                                    </div>
+                                    <div className="card-meta">
+                                        <span className="date">{project.date}</span>
+                                        <span className="card-cta">Open</span>
+                                    </div>
+                                </div>
+                            </article>
+                        </a>
+                    ))}
+                </div>
             </div>
-
             <div className="blank"></div>
-        </div>
+        </section>
     );
 }
 

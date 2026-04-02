@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "@/styles/navbar.css";
 
 const NAV_LINKS = [
@@ -15,8 +15,22 @@ const NAV_LINKS = [
 
 function NavBar() {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
+    const [activeHash, setActiveHash] = useState("#Home");
 
     const closeMenu = () => setIsMenuOpen(false);
+
+    useEffect(() => {
+        const syncActiveHash = () => {
+            setActiveHash(window.location.hash || "#Home");
+        };
+
+        syncActiveHash();
+        window.addEventListener("hashchange", syncActiveHash);
+
+        return () => {
+            window.removeEventListener("hashchange", syncActiveHash);
+        };
+    }, []);
 
     return (
         <nav id="nav-bar" className={isMenuOpen ? "menu-open" : ""}>
@@ -50,30 +64,42 @@ function NavBar() {
                     <img src="img/sidebar-close.png" alt="" />
                 </button>
 
-                {NAV_LINKS.map(({ href, label }) => (
-                    <Link
-                        key={href}
-                        href={href}
-                        className="drawer-link"
-                        onClick={closeMenu}
-                        scroll={true}
-                    >
-                        {label}
-                    </Link>
-                ))}
+                {NAV_LINKS.map(({ href, label }) => {
+                    const hash = href.slice(href.indexOf("#"));
+                    return (
+                        <Link
+                            key={href}
+                            href={href}
+                            className="drawer-link"
+                            onClick={() => {
+                                setActiveHash(hash);
+                                closeMenu();
+                            }}
+                            scroll={true}
+                            aria-current={activeHash === hash ? "page" : undefined}
+                        >
+                            {label}
+                        </Link>
+                    );
+                })}
             </div>
 
             <div className="topnav">
-                {NAV_LINKS.map(({ href, label }) => (
-                    <Link
-                        key={href}
-                        href={href}
-                        className="nav-link"
-                        scroll={true}
-                    >
-                        <strong>{label}</strong>
-                    </Link>
-                ))}
+                {NAV_LINKS.map(({ href, label }) => {
+                    const hash = href.slice(href.indexOf("#"));
+                    return (
+                        <Link
+                            key={href}
+                            href={href}
+                            className="nav-link"
+                            scroll={true}
+                            onClick={() => setActiveHash(hash)}
+                            aria-current={activeHash === hash ? "page" : undefined}
+                        >
+                            <strong>{label}</strong>
+                        </Link>
+                    );
+                })}
             </div>
         </nav>
     );

@@ -1,26 +1,10 @@
 "use client";
 
-import { useEffect, useState } from "react";
 import "@/styles/home/skills.css";
-import MobileSkills from "@/components/archive/home2/mobile/Skills";
 
 function Skills() {
-    const [isMobile, setIsMobile] = useState(false);
-
-    useEffect(() => {
-        const updateIsMobile = () => setIsMobile(window.innerWidth <= 900);
-
-        updateIsMobile();
-        window.addEventListener("resize", updateIsMobile);
-        return () => window.removeEventListener("resize", updateIsMobile);
-    }, []);
-
-    if (isMobile) {
-        return <MobileSkills />;
-    }
-
     return (
-        <div className="desktop-skills">
+        <div id="Skills" className="desktop-skills">
             <h2 id="list" data-aos="fade-up">
                 Skills
             </h2>

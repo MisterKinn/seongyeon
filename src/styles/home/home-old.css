@@ -1,0 +1,205 @@
+.home-container {
+    min-height: 100vh;
+    color: white;
+    padding: 0 4rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(
+        90deg,
+        #5a4fcf 0%,
+        #00008b 25%,
+        #6a5acd 50%,
+        #4d4dff 75%,
+        #0039a6 100%
+    );
+    background-size: 200% 100%;
+    animation: gradientFlow 10s ease infinite;
+    position: relative;
+}
+
+@keyframes gradientFlow {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+.home-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.greeting {
+    font-size: 3.5em;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    gap: 0.5rem;
+    opacity: 0;
+    animation: fadeUp 1s forwards;
+}
+
+.wave {
+    display: inline-block;
+    animation: wave 2s infinite;
+    transform-origin: 70% 70%;
+}
+
+@keyframes wave {
+    0% {
+        transform: rotate(0deg);
+    }
+    10% {
+        transform: rotate(14deg);
+    }
+    20% {
+        transform: rotate(-8deg);
+    }
+    30% {
+        transform: rotate(14deg);
+    }
+    40% {
+        transform: rotate(-4deg);
+    }
+    50% {
+        transform: rotate(10deg);
+    }
+    60% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(0deg);
+    }
+}
+
+.description {
+    font-size: 1.5em;
+    font-weight: normal;
+    line-height: 1.6;
+    margin-bottom: 3rem;
+    color: #bbbbbb;
+    opacity: 0;
+    animation: fadeUp 1s 0.3s forwards;
+}
+
+.gradient-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 200px;
+    background: linear-gradient(to bottom, transparent, black);
+    pointer-events: none;
+}
+
+.arrow-container {
+    margin-top: -10em;
+    margin-bottom: 25em;
+    width: 100%;
+    opacity: 0;
+    animation: fadeUp 1s 0.6s forwards;
+}
+
+.arrow {
+    width: 5em;
+    margin-top: 0em;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    animation: MoveUpDown 2s linear infinite;
+    position: relative;
+}
+
+.cta-button {
+    display: inline-block;
+    margin-top: 2rem;
+    padding: 0.75rem 1.5rem;
+    background-color: #fff;
+    color: #000;
+    text-decoration: none;
+    border-radius: 0.25rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
+    font-size: 1rem;
+    font-family: inherit;
+}
+
+.cta-button:hover {
+    background-color: #f0f0f0;
+    transform: translateY(-2px);
+}
+
+@keyframes fadeUp {
+    0% {
+        transform: translateY(20px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes MoveUpDown {
+    0%,
+    100% {
+        bottom: 0;
+    }
+    50% {
+        bottom: 2em;
+    }
+}
+
+@media (max-width: 900px) {
+    .home-container {
+        padding: 0 1.5rem;
+        min-height: 90vh;
+        align-items: flex-start;
+        text-align: center;
+    }
+
+    .home-content {
+        justify-content: center;
+        text-align: center;
+    }
+
+    .greeting {
+        font-size: 2.2em;
+        margin-bottom: 1rem;
+        margin-top: 7.5em;
+    }
+
+    .description {
+        font-size: 1em;
+        line-height: 1.5;
+        margin: 1.5rem 0 2rem;
+        padding: 0 0.5rem;
+    }
+
+    .gradient-overlay {
+        height: 150px;
+    }
+
+    .arrow-container {
+        margin-top: -12.5em;
+        margin-bottom: 20em;
+    }
+
+    .arrow {
+        width: 4em;
+    }
+
+    .cta-button {
+        margin-top: 1.5rem;
+        padding: 0.6rem 1.2rem;
+        font-size: 0.9rem;
+    }
+}
