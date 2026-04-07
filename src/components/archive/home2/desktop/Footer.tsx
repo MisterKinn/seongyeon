@@ -1,20 +1,13 @@
-import { useEffect, useRef } from "react";
+const COPYRIGHT_NAME = "Kinn";
 
 function Footer() {
-    const yearRef = useRef<HTMLSpanElement>(null);
-
-    useEffect(() => {
-        const yearElement = yearRef.current;
-        if (yearElement) {
-            yearElement.textContent = new Date().getFullYear().toString();
-        }
-    }, []);
+    const currentYear = new Date().getFullYear();
 
     return (
         <div>
             <p className="footer-text">
-                &copy; <span id="copyright-year" ref={yearRef} />{" "}
-                <strong>Kinn</strong>.
+                &copy; <span id="copyright-year">{currentYear}</span>{" "}
+                <strong>{COPYRIGHT_NAME}</strong>.
                 <span className="footer-line-break" aria-hidden="true">
                     <br />
                 </span>{" "}

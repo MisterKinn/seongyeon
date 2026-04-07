@@ -2,6 +2,30 @@
 import { useEffect, useRef } from "react";
 import "@/styles/home/home.css";
 
+const HERO_CONTENT = {
+    greetingLines: ["I make interfaces", "that feel alive."],
+    name: "SeongYeon Kim",
+    descriptionLines: [
+        "I'm a student Frontend Developer",
+        "with a passion for crafting functional,",
+        "impactful experiences that resonate with users.",
+    ],
+    status: "Available for outsourcing projects",
+} as const;
+
+const HERO_ACTIONS = [
+    {
+        label: "View My Portfolio",
+        sectionId: "Portfolio",
+        className: "cta-button cta-primary",
+    },
+    {
+        label: "Get in touch →",
+        sectionId: "Profile",
+        className: "cta-link",
+    },
+] as const;
+
 function Home() {
     const heroRef = useRef<HTMLDivElement>(null);
 
@@ -66,50 +90,47 @@ function Home() {
                 <div className="hero-content">
                     <div className="hero-text">
                         <h1 className="greeting">
-                            I make interfaces
+                            {HERO_CONTENT.greetingLines[0]}
                             <br />
-                            that feel alive.
+                            {HERO_CONTENT.greetingLines[1]}
                             <br />
                             I&apos;m{" "}
                             <span className="signature-underline">
-                                SeongYeon Kim
+                                {HERO_CONTENT.name}
                             </span>
                             .
                         </h1>
                         <p className="description">
-                            I'm a student Frontend Developer
-                            <br />
-                            with a passion for crafting functional,
-                            <br />
-                            impactful experiences that resonate with users.
+                            {HERO_CONTENT.descriptionLines.map(
+                                (line, index) => (
+                                    <span key={`hero-description-${index}`}>
+                                        {line}
+                                        {index <
+                                            HERO_CONTENT.descriptionLines
+                                                .length -
+                                                1 && <br />}
+                                    </span>
+                                ),
+                            )}
                         </p>
                         <div className="status-line">
                             <span
                                 className="status-dot"
                                 aria-hidden="true"
                             ></span>
-                            Available for outsourcing projects
+                            {HERO_CONTENT.status}
                         </div>
                         <div className="cta-group">
-                            <button
-                                type="button"
-                                onClick={() => scrollTo("Portfolio")}
-                                className="cta-button cta-primary"
-                            >
-                                View My Portfolio
-                            </button>
-                            <button
-                                type="button"
-                                onClick={() => scrollTo("Profile")}
-                                className="cta-link"
-                            >
-                                Get in touch →
-                            </button>
-                        </div>
-                        <div className="proof-chips">
-                            <span className="chip">Hackathon Grand Prize</span>
-                            <span className="chip">React / Next.js</span>
-                            <span className="chip">Three.js</span>
+                            {HERO_ACTIONS.map((action) => (
+                                <button
+                                    key={action.sectionId}
+                                    type="button"
+                                    onClick={() => scrollTo(action.sectionId)}
+                                    className={action.className}
+                                >
+                                    {action.label}
+                                </button>
+                            ))}
                         </div>
                     </div>
                 </div>

@@ -1,5 +1,52 @@
 import "@/styles/home/portfolio.css";
 
+const OUTSOURCE_PROJECTS = [
+    {
+        href: "#",
+        title: "DongDong Service",
+        cardTitle: "Accompany Service",
+        description:
+            "Frontend development for 동반자동행, a mobile app that pairs seniors with volunteer companions.",
+        image: "img/dongdong.png",
+        imageAlt: "DongDong Service Preview",
+        tags: ["React Native", "Mobile", "Frontend"],
+        date: "25. 12. 20. - 25. 12. 29.",
+    },
+    {
+        href: "https://uhak.prego.im",
+        title: "Prego Abroad",
+        cardTitle: "Prego Abroad",
+        description:
+            "Official website for Prego Abroad, an overseas education consulting service.",
+        image: "img/prego.png",
+        imageAlt: "Prego Abroad Preview",
+        tags: ["Next.js", "Web", "Consulting"],
+        date: "25. 11. 21. - 26. 01. 12.",
+    },
+    {
+        href: "https://novalaw.kr",
+        title: "Nova Law Firm",
+        cardTitle: "Nova Law Firm",
+        description:
+            "Official website for NovaLaw, a law firm based in Incheon, Songdo.",
+        image: "img/novalaw.png",
+        imageAlt: "Nova Law Firm Preview",
+        tags: ["Next.js", "Web", "Legal"],
+        date: "24. 04. 03. - 24. 07. 11.",
+    },
+    {
+        href: "https://thegrant.kr",
+        title: "TheGrant AI",
+        cardTitle: "TheGrant AI",
+        description:
+            "Official website for TheGrant, an AI SaaS that helps writing a business plan.",
+        image: "img/thegrant.ico",
+        imageAlt: "TheGrant AI Preview",
+        tags: ["React", "Web", "AI"],
+        date: "26. 01. 26. - 26. 02. 13.",
+    },
+] as const;
+
 export default function Outsource() {
     return (
         <div className="outsource-section" data-aos="fade-up">
@@ -12,107 +59,44 @@ export default function Outsource() {
             </h3>
 
             <div className="portfolio-grid" data-aos="fade-up">
-                <a
-                    href="#"
-                    target="_blank"
-                    title="DongDong Service"
-                    className="portfolio-item outsource-item"
-                >
-                    <div className="portfolio-card">
-                        <div className="card-preview outsource-preview">
-                            <img
-                                loading="lazy"
-                                src="img/dongdong.png"
-                                alt="DongDong Service Preview"
-                            />
-                        </div>
-                        <div className="card-info">
-                            <span className="outsource-badge">Client Work</span>
-                            <h3>Accompany Service</h3>
-                            <p>
-                                Frontend development for 동반자동행, a mobile
-                                app that pairs seniors with volunteer companions.
-                            </p>
-                            <div className="card-tags">
-                                <span className="card-tag">React Native</span>
-                                <span className="card-tag">Mobile</span>
-                                <span className="card-tag">Frontend</span>
+                {OUTSOURCE_PROJECTS.map((project) => (
+                    <a
+                        key={project.title}
+                        href={project.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        title={project.title}
+                        className="portfolio-item outsource-item"
+                    >
+                        <div className="portfolio-card">
+                            <div className="card-preview outsource-preview">
+                                <img
+                                    loading="lazy"
+                                    src={project.image}
+                                    alt={project.imageAlt}
+                                />
                             </div>
-                            <div className="card-meta">
-                                <span className="date">25. 12. 20. – 25. 12. 29.</span>
-                                <span className="card-cta">View</span>
-                            </div>
-                        </div>
-                    </div>
-                </a>
-
-                <a
-                    href="https://uhak.prego.im"
-                    target="_blank"
-                    title="Prego Abroad"
-                    className="portfolio-item outsource-item"
-                >
-                    <div className="portfolio-card">
-                        <div className="card-preview outsource-preview">
-                            <img
-                                loading="lazy"
-                                src="img/prego.png"
-                                alt="Prego Abroad Preview"
-                            />
-                        </div>
-                        <div className="card-info">
-                            <span className="outsource-badge">Client Work</span>
-                            <h3>Prego Abroad</h3>
-                            <p>
-                                Official website for Prego Abroad, an overseas
-                                education consulting service.
-                            </p>
-                            <div className="card-tags">
-                                <span className="card-tag">Next.js</span>
-                                <span className="card-tag">Web</span>
-                                <span className="card-tag">Consulting</span>
-                            </div>
-                            <div className="card-meta">
-                                <span className="date">25. 11. 21. – 26. 01. 12.</span>
-                                <span className="card-cta">View</span>
+                            <div className="card-info">
+                                <span className="outsource-badge">
+                                    Client Work
+                                </span>
+                                <h3>{project.cardTitle}</h3>
+                                <p>{project.description}</p>
+                                <div className="card-tags">
+                                    {project.tags.map((tag) => (
+                                        <span key={tag} className="card-tag">
+                                            {tag}
+                                        </span>
+                                    ))}
+                                </div>
+                                <div className="card-meta">
+                                    <span className="date">{project.date}</span>
+                                    <span className="card-cta">View</span>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                </a>
-
-                <a
-                    href="https://novalaw.kr"
-                    target="_blank"
-                    title="Nova Law Firm"
-                    className="portfolio-item outsource-item"
-                >
-                    <div className="portfolio-card">
-                        <div className="card-preview outsource-preview">
-                            <img
-                                loading="lazy"
-                                src="img/novalaw.png"
-                                alt="Nova Law Firm Preview"
-                            />
-                        </div>
-                        <div className="card-info">
-                            <span className="outsource-badge">Client Work</span>
-                            <h3>Nova Law Firm</h3>
-                            <p>
-                                Official website for NovaLaw, a law firm based
-                                in Incheon, Songdo.
-                            </p>
-                            <div className="card-tags">
-                                <span className="card-tag">Next.js</span>
-                                <span className="card-tag">Web</span>
-                                <span className="card-tag">Legal</span>
-                            </div>
-                            <div className="card-meta">
-                                <span className="date">24. 07. 11.</span>
-                                <span className="card-cta">View</span>
-                            </div>
-                        </div>
-                    </div>
-                </a>
+                    </a>
+                ))}
             </div>
 
             <div className="blank"></div>

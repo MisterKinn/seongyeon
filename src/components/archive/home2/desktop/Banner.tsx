@@ -1,11 +1,23 @@
+const BANNER = {
+    href: "https://kinn.kr/",
+    title: "Kinn's Lounge",
+    image: "../img/kinn-banner.png",
+    alt: "Kinn's Lounge",
+} as const;
+
 function Banner() {
     return (
         <div id="Banner">
-            <a href="https://kinn.kr/" target="_blank" title="Kinn's Lounge">
+            <a
+                href={BANNER.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                title={BANNER.title}
+            >
                 <img
                     loading="lazy"
-                    src="../img/kinn-banner.png"
-                    alt="Kinn's Lounge"
+                    src={BANNER.image}
+                    alt={BANNER.alt}
                     className="banner margin10"
                 />
             </a>
