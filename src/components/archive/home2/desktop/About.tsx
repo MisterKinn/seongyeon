@@ -11,7 +11,15 @@ const ABOUT_MOTTO_LINES = [
     "not the perception of it.",
 ] as const;
 
-const ABOUT_GOAL_LINES = [
+type AboutGoalLine = {
+    prefix: string;
+    highlight: string;
+    suffix?: string;
+    highlight2?: string;
+    ending?: string;
+};
+
+const ABOUT_GOAL_LINES: readonly AboutGoalLine[] = [
     {
         prefix: "I'm going to work at ",
         highlight: "Startup",
